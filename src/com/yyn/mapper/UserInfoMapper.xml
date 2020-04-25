@@ -1,0 +1,18 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yyn.dao.UserInfoDao">
+
+    <select id="findAll" resultType="com.yyn.bean.UserInfo">
+        select * from tb_user
+    </select>
+
+    <select id="login" parameterType="String" resultType="com.yyn.bean.UserInfo">
+        select * from tb_user where username=#{username}
+    </select>
+
+    <insert id="addUserInfo" parameterType="com.yyn.bean.UserInfo">
+        INSERT INTO tb_user(username,password) VALUE(#{username},#{password})
+    </insert>
+
+</mapper>
